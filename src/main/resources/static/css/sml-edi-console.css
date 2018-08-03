@@ -1,0 +1,8 @@
+.prod-table-cont { width:100%; overflow-x:auto; }
+.prod-table-cont .table-responsive { width:1190px;  }
+.prod-table-cont { table-layout:fixed;  }
+.prod-table-cont thead, .prod-table-cont tbody {
+    display: block;
+    width: 100%;
+}
+.prod-table-cont tbody { max-height:620px; overflow-y:auto; }

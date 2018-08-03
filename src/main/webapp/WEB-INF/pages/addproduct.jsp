@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Navbar Template for Bootstrap</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Status</title>
+
 </head>
 <body>
 <div class="container">
-    <!-- Static navbar -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -45,15 +47,6 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Products <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-<c:forEach var="value" items="${list}" varStatus="status">
-
-                            <li><a href="/products?id=${value.lookupID}">${value.name}</a></li>
-</c:forEach>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Logging <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">All</a></li>
@@ -73,30 +66,27 @@
                             <li><a href="/logout">Logout</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Programs <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Show favourites</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
     </nav>
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>EDI Loader Console</h1>
-        <p>Monitor and edit EDI configurations</p>
-    </div>
 </div>
-<!-- /container -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!--<script src="../assets/js/jquery.min.js"></script> -->
-<!--<script src="../bootstrap/js/bootstrap.min.js"></script> -->
+<form:form action="saveproduct" method="post">
+<div class="container">
+    Add new product ${id}
+    <table class="table table-striped">
+        <tr><td>Lookup ID</td><td><form:input path="lookupId" value="${id}"/></td></tr>
+        <tr><td>Callout</td><td><form:input path="CValue1"/></td>
+        <td></td><td><form:input path="CValue2"/></td>
+        <td>Secondary</td><td><form:input path="CValue3"/></td></tr>
+        <tr><td>Product</td><td><form:input path="UValue1"/></td>
+        <td>Style</td><td><form:input path="UValue2"/></td>
+        <td></td><td><form:input path="UValue3"/></td></tr>
+        <tr><td><button type="submit" class="btn btn-primary">Save</button></td></tr>
+    </table>
+</div>
+</form:form>
 </body>
 </html>
-

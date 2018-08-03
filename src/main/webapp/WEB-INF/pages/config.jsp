@@ -109,6 +109,21 @@
             </tr>
         </c:forEach>
     </table>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Sequence</th>
+                <th>Command</th>
+                <th>Desc</th>
+            </tr>
+            <c:forEach var="value" items="${lookups}" varStatus="status">
+                <tr>
+                    <td>${value.sequence}</td>
+                    <td>${value.command}</td>
+                    <td>${value.lookupDesc}</td>
+                </tr>
+            </c:forEach>
+        </table>
 </div>
 </body>
 </html>

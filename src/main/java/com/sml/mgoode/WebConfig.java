@@ -56,6 +56,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                         "classpath:/static/js/");
     }
 
+    @Primary
     @Bean(name = "genericEDI")
     @ConfigurationProperties(prefix = "spring.edi")
     public DataSource getGenericDataSource() {
@@ -63,21 +64,19 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean(name = "genericJdbcTemplate")
-    @Qualifier("genericJdbcTemplate")
     public JdbcTemplate jdbcTemplateGeneric(@Qualifier("genericEDI") DataSource ds) {
         return new JdbcTemplate(ds);
     }
 
-//    @Bean(name="msEDI")
-//    @Qualifier("msJdbcTemplate")
-//    @ConfigurationProperties(prefix = "spring.ms")
-//    public DataSource getMSDataSource() {
-//        return DataSourceBuilder.create().build();
-//    }
-//
-//    @Bean(name = "msJdbcTemplate")
-//    public JdbcTemplate jdbcTemplateMS(@Qualifier("msEDI") DataSource ds) {
-//        return new JdbcTemplate(ds);
-//    }
+
+    @Bean(name = "msEDI")
+    @ConfigurationProperties(prefix = "spring.ms")
+    public DataSource getMSDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+    @Bean(name = "msJdbcTemplate")
+    public JdbcTemplate jdbcTemplateMS(@Qualifier("msEDI") DataSource ds) {
+        return new JdbcTemplate(ds);
+    }
 
 }

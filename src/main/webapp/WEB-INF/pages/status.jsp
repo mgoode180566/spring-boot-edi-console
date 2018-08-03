@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="3">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,12 +77,16 @@
 <div class="container">
     <table class="table table-striped">
         <tr>
+            <th></th>
             <th>Program</th>
+            <th>Catalog</th>
             <th>Status</th>
         </tr>
         <c:forEach var="value" items="${list}" varStatus="status">
             <tr>
+                <td>${value.programId}</td>
                 <td>${value.programName}</td>
+                <td>${value.server}</td>
                 <td>${value.status}</td>
             </tr>
         </c:forEach>

@@ -59,9 +59,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordAttribute("userPassword");
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-//        // following section connects to Active Directory
+        // following section connects to Active Directory
 //        String userDNPattern = "";
 //
 //        ActiveDirectoryLdapAuthenticationProvider adProvider =

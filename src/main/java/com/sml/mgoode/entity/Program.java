@@ -14,6 +14,7 @@ public class Program {
     String subProgram;
     String status;
     boolean showAsFavourite;
+    String server;
 
     public String getMainProgram() {
         return mainProgram;
@@ -85,5 +86,13 @@ public class Program {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getServer() {
+        return server;
+    }
+
+    public void setServer(String server) {
+        this.server = server;
     }
 }
